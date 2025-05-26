@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { // Added Montserrat to Tailwind's theme
+              montserrat: ['Montserrat', 'sans-serif'],
+            },
+          },
+        },
+        plugins: [
+          // Note: require() syntax for plugins is typically for Node.js environments.
+          // For Play CDN, plugins are usually included via URL params, e.g.,
+          // https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio
+          // This config might not load these plugins as is in a browser.
+          // require('@tailwindcss/forms'),
+          // require('@tailwindcss/typography'),
+          // require('@tailwindcss/aspect-ratio'),
+        ],
+      };
+    </script>
+    <!-- read-more button -->
+     <style>
+      .read-more-btn:hover {
+        background-color: #4f46e5;
+        color: white;
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+    <!-- javascript tag -->
+    <script src="Home.js" defer></script>
+    <title>Portfolio - About</title>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <!-- Overall container for sidebar + main content -->
+    <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
+        <!-- Sidebar for responsive screen-->
+        <nav id="sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
+            <!-- <button id="close-sidebar" class="self-end mb-4 text-xl text-gray-600 hover:text-black md:hidden">
+                <i class="fas fa-times"></i>
+            </button> -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-black">Portfolio</h1>
+            </div>
+            <ul class="mt-4 space-y-4">
+                <li><a href="index.html" class="text-black hover:text-amber-600">Home</a></li>
+                <li><a href="about.html" class="text-black hover:text-amber-600">About</a></li>
+                <li><a href="Services.html" class="text-black hover:text-amber-600">Services</a></li>
+                <li><a href="project.html" class="text-black hover:text-amber-600">Projects</a></li>
+                <li><a href="contact.html" class="text-black hover:text-amber-600">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hamburger Button -->
+        <button id="hamburger" class="fixed top-4 right-4 bg-gray-500 text-white p-2 rounded z-50 md:hidden">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Sidebar for larger screens -->
+        <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
+        <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
+            <div class="mb-8 pt-16 md:pt-24">
+              <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
+            </div>
+            <div class="flex flex-col items-center gap-5">
+              <a href="index.html" class="text-gray-500 hover:text-gray-800 text-lg">Home</a>
+              <a href="about.html" class="text-gray-500 hover:text-gray-800 text-lg">About</a>
+              <a href="Services.html" class="text-gray-500 hover:text-gray-800 text-lg">Services</a>
+              <a href="project.html" class="text-gray-500 hover:text-gray-800 text-lg">Projects</a>
+              <a href="contact.html" class="text-gray-500 hover:text-gray-800 text-lg">Contacts</a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <!--
+          - md:ml-1/4: Pushes the main content area to start after the 1/4 width fixed sidebar on medium screens and up.
+          - flex-1: Allows this main area to take up the remaining available width (3/4 of the screen) and height.
+          - flex flex-col items-center:
+            - flex-col: Stacks children vertically.
+            - items-center: Centers children (like the content wrapper div) horizontally within this main area.
+          - overflow-hidden: Ensures that if content inside tries to break out, it's clipped, important for scrolling setup.
+        -->
+        <main class="md:ml-1/4 flex-1 flex flex-col items-center bg-gray-50 overflow-hidden md:mr-1/4"></main>
+           <!-- Content Wrapper for centering and max-width -->
+           <!--
+             - w-full: Takes full width of its parent (main, which is 3/4 of screen).
+             - max-w-screen-lg: Constrains the content to a readable max width (e.g., 1024px).
+                                If 3/4 of screen width is larger than this, this div will be centered.
+                                This creates a natural gap from the sidebar.
+             - h-full: Ensures this wrapper takes the full height of the parent 'main' element,
+                       allowing the 'section' inside to correctly use flex-grow and overflow-y-auto.
+             - md:px-6 lg:px-8: Adds horizontal padding on medium/large screens, creating a further "gap"
+                                for the content from the edges of this wrapper.
+           -->
+           <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
+               <!-- Section takes available space, handles its own padding and scrolling -->
+               <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
+                <!-- Text content block -->
+                <div class="pt-16 md:pt-20 flex flex-col gap-3"> <!-- Adjusted top padding based on fixed hamburger/header -->
+                    <div class="w-20 p-2 bg-gray-300"> <!-- w-3/4 for 75% content width -->
+                    <p class="font-medium text-gray-600 text-sm tracking-wider text-center">ABOUT</p>
+                  </div>
+                  <h1 class="font-bold text-4xl md:text-5xl text-gray-800">
+                    About Me
+                  </h1>
+                </div>
+                <!-- Image container -->
+                <div class="flex-grow min-h-0">
+                    <div class="relative w-full h-full group">
+                      <img class="w-full h-22 object-cover rounded-lg shadow-lg transition-transform duration-700 transform-gpu group-hover:scale-110" src="/resources/Mr wale .jpg" alt="A profile picture of Mr. Wale">
+                    </div>
+                </div>
+              
+                <div>
+                  <h1 class="font-medium text-2xl">
+                    Adewale 
+                  </h1>
+                  <p class="text-gray-500">
+                    Tech entrepreneur
+                  </p>
+                </div>
+
+                <div class="bg-gray-200 w-full h-0.5"></div> <!-- This was self-closing, fixed it -->
+                
+
+                <div> <!-- This div was opened outside the section previously, moved it inside -->
+                  <p>
+                    Hi! I’m Adewale, a tech entrepreneur at the forefront of AI-driven innovation. I focus on creating AI solutions that help businesses automate their operations, improve customer experiences, and predict future trends. With over 6 years of experience in the data science space, I have worked on a diverse range of machine learning and data analytics projects that span across industries like the space industry, healthcare, and e-commerce. I am particularly interested in the ethical implications of AI and its potential to improve society through innovative solutions.
+                  </p>
+                </div>
+
+                <div class="bg-gray-200 w-full h-0.5"></div> 
+
+               <!-- Knowledge Areas -->
+                <div class="p-20 -mx-4 shadow-lg">
+                  <div class="grid grid-cols-2 gap-4">
+                    <!-- Left List -->
+                    <ul class="space-y-2">
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Machine Learning (Supervised, Unsupervised, Deep Learning, Reinforcement Learning)
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Natural Language Processing (NLP)
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Predictive Analytics & Forecasting
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Data Preprocessing & Feature Engineering
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Model Evaluation & Validation (Cross-validation, ROC-AUC, Confusion Matrix)
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Classical ML Algorithms (SVM, k-NN, Decision Trees, Naïve Bayes)
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Neural Network Architecture Design
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Explainable AI (XAI) & Interpretability Techniques
+                      </li>
+                    </ul>
+                
+                    <!-- Right List -->
+                    <ul class="space-y-2">
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Image Processing & Computer Vision
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Scientific Research & Technical Writing
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Public Health Analytics & Clinical ML
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Climate and Earth Observation Data Analysis
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Research Design, Publishing & Conference Presentation
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Ethics in AI & Responsible ML
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Entrepreneurship & Innovation in AI
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Building AI startups and scaling solutions
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Product development & go-to-market strategy
+                      </li>
+                      <li class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-caret-right text-black mr-2 "></i> Business modelling and tech-driven impact
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+              <!-- Programming & Technical Skills -->
+              <section id="skills" class=" py-12">
+                <div class="container mx-auto px-6 shadow-lg bg-white p-8 rounded-lg" style="box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);">
+                  <h2 class="text-2xl font-bold text-gray-800 mb-6">Programming & Technical Skills</h2>
+                  <div class="grid grid-cols-2 gap-6">
+                    <!-- Left Column -->
+                    <ul class="space-y-6">
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">Python (NumPy, pandas, scikit-learn, matplotlib, seaborn)</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="95"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">95%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">R (Data wrangling, statistical analysis, visualisation)</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="85"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">85%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">SQL</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="90"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">90%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">PyTorch, TensorFlow, Keras</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="80"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">80%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">OpenCV, scikit-image, SimpleITK, pydicom</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="75"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">75%</span>
+                      </li>
+                    </ul>
+              
+                    <!-- Right Column -->
+                    <ul class="space-y-6">
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">Git, GitHub, Docker, Linux (Ubuntu)</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="85"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">85%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">Azure, AWS, Google Cloud Platform</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="80"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">80%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">Databricks, AWS S3 (data pipeline integration)</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="75"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">75%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">Jupyter, Google Colab, Power BI, Tableau, Excel</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="90"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">90%</span>
+                      </li>
+                      <li>
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700 text-sm font-medium">LaTeX, MS Word, Mendeley, Zotero, Trello, Slack, JIRA</span>
+                          <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
+                            <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="85"></div>
+                          </div>
+                        </div>
+                        <span class="text-gray-600 text-xs mt-1 block text-right">85%</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+              <!-- End of Programming & Technical Skills Section -->
+
+              <div class="bg-gray-200 w-full h-0.5"></div> 
+              
+              <!-- Education & Experience -->
+              <section id="experience" class="py-12 ">
+                <div class="container mx-auto px-6 bg-white p-8 rounded-lg shadow-lg">
+                  <h2 class="text-2xl font-bold text-gray-800 mb-8">Education & Experience</h2>
+                  <div class="flex flex-col lg:flex-row gap-12">
+                    
+                    <!-- Education Section -->
+                    <div class="lg:w-1/2">
+                      <h3 class="text-xl font-semibold text-gray-700 mb-6">Education</h3>
+                      <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                          <div class="flex-shrink-0">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                              <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0-6L3 9m9 5l9-5" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div>
+                            <h4 class="text-lg font-medium text-gray-800">MSc Data Science and Applied Analytics (Distinction)</h4>
+                            <p class="text-gray-600">University of Lincoln, United Kingdom</p>
+                            <span class="text-gray-500 text-sm">(2023-2024)</span>
+                          </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                          <div class="flex-shrink-0">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                              <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0-6L3 9m9 5l9-5" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div>
+                            <h4 class="text-lg font-medium text-gray-800">B-Tech Pure and Applied Physics (First Class)</h4>
+                            <p class="text-gray-600">Ladoke Akintola University of Technology, Nigeria</p>
+                            <span class="text-gray-500 text-sm">(2011-2018)</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <!-- Experience Section -->
+                    <div class="lg:w-1/2">
+                      <h3 class="text-xl font-semibold text-gray-700 mb-6">Work Experience</h3>
+                      <div class="space-y-8">
+                        <div class="flex justify-between items-start">
+                          <div>
+                            <h4 class="text-lg font-medium text-gray-800">Senior Data Engineer & Analyst</h4>
+                            <p class="text-gray-600">Talence Research</p>
+                          </div>
+                          <span class="text-gray-500 text-sm">(2024 – Present)</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                          <div>
+                            <h4 class="text-lg font-medium text-gray-800">Senior Data Analyst & Team Lead</h4>
+                            <p class="text-gray-600">Space in Africa</p>
+                          </div>
+                          <span class="text-gray-500 text-sm">(2021 – 2024)</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                          <div>
+                            <h4 class="text-lg font-medium text-gray-800">Data Analyst</h4>
+                            <p class="text-gray-600">eHealth4Everyone</p>
+                          </div>
+                          <span class="text-gray-500 text-sm">(2019 – 2021)</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                          <div>
+                            <h4 class="text-lg font-medium text-gray-800">Data Manager</h4>
+                            <p class="text-gray-600">National College of Aviation Technology (NCAT)</p>
+                          </div>
+                          <span class="text-gray-500 text-sm">(2018 – 2019)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- End of Education & Experience Section -->
+
+               <!-- Research & Professional Interests -->
+
+               <section class="py-12 bg-white">
+                <div class="container mx-auto px-6">
+                  <h2 class="text-2xl font-bold text-gray-800 mb-8">Research & Professional Interests</h2>
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Box Template -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Applied Machine Learning</h3>
+                      <p class="text-gray-600">For real-world challenges in healthcare, agriculture, and climate systems...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Applied Machine Learning for real-world challenges in healthcare, agriculture, and climate systems')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Ethical and Responsible AI</h3>
+                      <p class="text-gray-600">Building transparent, fair, and accountable ML models...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Ethical and Responsible AI: building transparent, fair, and accountable ML models')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Natural Language Processing</h3>
+                      <p class="text-gray-600">For knowledge discovery, decision support, and human-AI interaction...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Natural Language Processing (NLP) for knowledge discovery, decision support, and human-AI interaction')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Computer Vision</h3>
+                      <p class="text-gray-600">In health and agri-tech (e.g., fall detection, weed classification)...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Computer Vision in health and agri-tech (e.g., fall detection, weed classification, disease diagnosis)')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Reinforcement Learning</h3>
+                      <p class="text-gray-600">For adaptive decision systems in dynamic environments...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Reinforcement Learning for adaptive decision systems in dynamic environments')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Sustainable AI</h3>
+                      <p class="text-gray-600">Data-efficient models for low-resource domains...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Sustainable AI: data-efficient models for low-resource domains')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">AI for Social Good</h3>
+                      <p class="text-gray-600">Using intelligent systems to address inequalities...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'AI for Social Good: using intelligent systems to address inequalities and infrastructure gaps')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Interdisciplinary Research</h3>
+                      <p class="text-gray-600">Combining domain expertise with ML/AI innovation...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Interdisciplinary Research combining domain expertise with ML/AI innovation')">Read More</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">Entrepreneurship in AI</h3>
+                      <p class="text-gray-600">Founding, scaling, and commercializing tech-driven solutions...</p>
+                      <button class="read-more-btn mt-4 px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white" onclick="readMore(this, 'Entrepreneurship in AI: founding, scaling, and commercializing tech-driven solutions')">Read More</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- End of Research & Professional Interests Section -->
+               </section>
+           </div>
+        </main>
+    </div>
+
+</body>
+</html>

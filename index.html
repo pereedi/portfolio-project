@@ -1,11 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<!-- Tailwind CSS Play CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { // Added Montserrat to Tailwind's theme
+              montserrat: ['Montserrat', 'sans-serif'],
+            },
+          },
+        },
+        plugins: [
+          // Note: require() syntax for plugins is typically for Node.js environments.
+          // For Play CDN, plugins are usually included via URL params, e.g.,
+          // https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio
+          // This config might not load these plugins as is in a browser.
+          // require('@tailwindcss/forms'),
+          // require('@tailwindcss/typography'),
+          // require('@tailwindcss/aspect-ratio'),
+        ],
+      };
+    </script>
+<!-- javascript tag -->
+<script src="Home.js" defer></script>
     <title>Portfolio</title>
 </head>
-<body>
-    
+<body class="bg-white font-montserrat">
+    <div class="flex flex-col md:flex-row gap-10 h-screen justify-center">
+        <!-- Sidebar for responsive screen-->
+        <nav id="sidebar" class="fixed top-0 right-0 w-1/2 h-[100vh] bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-black">Portfolio</h1>
+            </div>
+            <ul class="mt-4 space-y-4">
+                <li><a href="index.html" class="text-black hover:text-amber-600">Home</a></li>
+                <li><a href="about.html" class="text-black hover:text-amber-600">About</a></li>
+                <li><a href="Services.html" class="text-black hover:text-amber-600">Services</a></li>
+                <li><a href="project.html" class="text-black hover:text-amber-600">Projects</a></li>
+                <li><a href="contact.html" class="text-black hover:text-amber-600">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hamburger Button -->
+        <button id="hamburger" class="fixed top-4 right-4 bg-gray-500 text-white p-2 rounded z-50 md:hidden">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Sidebar for larger screens -->
+        <nav class="w-1/4 bg-amber-50 p-6 flex flex-col items-center shadow-lg hidden md:block">
+            <div class="mb-8 pt-24">
+              <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
+            </div>
+            <div class="flex flex-col items-center gap-5">
+              <a href="index.html" class="text-gray-500 hover:text-gray-800 text-lg">Home</a>
+              <a href="about.html" class="text-gray-500 hover:text-gray-800 text-lg">About</a>
+              <a href="Services.html" class="text-gray-500 hover:text-gray-800 text-lg">Services</a>
+              <a href="project.html" class="text-gray-500 hover:text-gray-800 text-lg">Projects</a>
+              <a href="contact.html" class="text-gray-500 hover:text-gray-800 text-lg">Contact</a>
+            </div>
+          </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col items-center justify-center gap-8">
+            <div class="relative w-48 h-48">
+                <!-- Spinning Border -->
+                <div class="absolute inset-0 w-full h-full border-4 border-transparent border-t-gray-500 rounded-full animate-spin"></div>
+                <!-- Profile Image -->
+                <img src="/resources/Mr wale .jpg" alt="profile-image" class="w-full h-full rounded-full object-cover relative z-10">
+            </div>
+            <div class="text-center">
+                <h1 class="text-2xl font-bold text-black">Welcome to My Portfolio</h1>
+                <p class="text-gray-500">
+                    Adewale is a tech entrepreneur, data scientist, and machine learning engineer passionate about harnessing the power of AI to solve complex problems and create innovative solutions.
+                </p>
+                <!-- Social Media Icons -->
+                <div class="flex justify-center gap-4 mt-4">
+                    <a href="https://linkedin.com" target="_blank" class="text-black text-md">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="text-black text-md">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="text-black text-md">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="text-black text-md">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
 </body>
 </html>
