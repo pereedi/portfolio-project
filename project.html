@@ -10,34 +10,55 @@
     <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { // Added Montserrat to Tailwind's theme
-              montserrat: ['Montserrat', 'sans-serif'],
-            },
-          },
-        },
-        plugins: [
-          // Note: require() syntax for plugins is typically for Node.js environments.
-          // For Play CDN, plugins are usually included via URL params, e.g.,
-          // https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio
-          // This config might not load these plugins as is in a browser.
-          // require('@tailwindcss/forms'),
-          // require('@tailwindcss/typography'),
-          // require('@tailwindcss/aspect-ratio'),
-        ],
-      };
+      tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { montserrat: ['Montserrat', 'sans-serif'] } } } };
     </script>
     <!-- read-more button -->
-     <style>
+
+    <!-- Custom Styles -->
+    <style>
       .read-more-btn:hover {
         background-color: #4f46e5;
         color: white;
         transform: scale(1.05);
         transition: all 0.3s ease-in-out;
       }
+      /* Styles for the active filter button */
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        border: 1px solid #d1d5db; /* gray-300 */
+        border-radius: 9999px;
+        font-weight: 500;
+        color: #4b5563; /* gray-600 */
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .filter-btn:hover {
+        background-color: #4f46e5; /* indigo-600 */
+        color: white;
+        border-color: #4f46e5;
+      }
+      .filter-btn.active {
+        background-color: #3730a3; /* indigo-800 */
+        color: white;
+        border-color: #3730a3;
+      }
+      /* Dark mode styles for filter buttons */
+      .dark .filter-btn {
+        color: #d1d5db; /* gray-300 */
+        border-color: #4b5563; /* gray-600 */
+      }
+      .dark .filter-btn:hover {
+        background-color: #4f46e5;
+        border-color: #4f46e5;
+      }
+      .dark .filter-btn.active {
+        background-color: #4338ca; /* indigo-700 */
+        border-color: #4338ca;
+        color: white;
+      }
     </style>
+    <!-- dark mode tuggle -->
+    <link rel="stylesheet" href="/tuggle.css">
     <!-- javascript tag -->
     <script src="Home.js" defer></script>
     <title>Portfolio - About</title>
@@ -46,7 +67,10 @@
     <!-- Overall container for sidebar + main content -->
     <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
         <!-- Sidebar for responsive screen-->
-        <nav id="sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
+        <div id="top-left-toggle">
+          <button id="dark-mode-toggle-responsive" class="toggle-btn">🌙</button>
+       </div>
+        <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
             <!-- <button id="close-sidebar" class="self-end mb-4 text-xl text-gray-600 hover:text-black md:hidden">
                 <i class="fas fa-times"></i>
             </button> -->
@@ -56,7 +80,7 @@
             <ul class="mt-4 space-y-4">
                 <li><a href="index.html" class="text-black hover:text-amber-600">Home</a></li>
                 <li><a href="about.html" class="text-black hover:text-amber-600">About</a></li>
-                <li><a href="Services.html" class="text-black hover:text-amber-600">Services</a></li>
+                <li><a href="Publications.html" class="text-black hover:text-amber-600">Publications</a></li>
                 <li><a href="project.html" class="text-black hover:text-amber-600">Projects</a></li>
                 <li><a href="contact.html" class="text-black hover:text-amber-600">Contact</a></li>
             </ul>
@@ -70,13 +94,14 @@
         <!-- Sidebar for larger screens -->
         <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
         <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
+          <div id="desktop-sidebar-toggle-container"><button id="dark-mode-toggle" class="toggle-btn">🌙</button></div>
             <div class="mb-8 pt-16 md:pt-24">
               <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
             </div>
             <div class="flex flex-col items-center gap-5">
               <a href="index.html" class="text-gray-500 hover:text-gray-800 text-lg">Home</a>
               <a href="about.html" class="text-gray-500 hover:text-gray-800 text-lg">About</a>
-              <a href="Services.html" class="text-gray-500 hover:text-gray-800 text-lg">Services</a>
+              <a href="Publications.html" class="text-gray-500 hover:text-gray-800 text-lg">Publications</a>
               <a href="project.html" class="text-gray-500 hover:text-gray-800 text-lg">Projects</a>
               <a href="contact.html" class="text-gray-500 hover:text-gray-800 text-lg">Contacts</a>
             </div>
@@ -103,9 +128,130 @@
              - md:px-6 lg:px-8: Adds horizontal padding on medium/large screens, creating a further "gap"
                                 for the content from the edges of this wrapper.
            -->
-           
+           <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
+            <!-- Section takes available space, handles its own padding and scrolling -->
+            <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
+              <!-- Text content block -->
+              <div class="pt-16 md:pt-20 flex flex-col gap-3">
+                <div class="w-40 px-4 py-2 bg-gray-300 text-center">
+                  <p class="font-medium text-gray-600 text-sm tracking-wider">PROJECTS</p>
+                </div>
+                <h1 class="font-bold text-4xl md:text-5xl text-gray-800">My PROJECTS</h1>
+              </div>
+
+              <!-- Content Wrapper -->
+           <div class="w-full max-w-screen-xl h-full flex flex-col md:px-6 lg:px-8">
+            <!-- Section with padding and scrolling -->
+            <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
+              <!-- Filter Buttons -->
+              <div id="project-filters" class="flex flex-wrap justify-center gap-2 md:gap-4 my-8">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="dsml">Data Science & ML</button>
+                <button class="filter-btn" data-filter="de">Data Engineering</button>
+                <button class="filter-btn" data-filter="nlp">Natural Language Processing</button>
+                <button class="filter-btn" data-filter="mi">Market Intelligence</button>
+              </div>
+
+              <!-- Project Grid -->
+              <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+                
+                <!-- Project Card 1: Customer Segmentation -->
+                <div class="project-card aspect-square relative overflow-hidden rounded-lg shadow-xl group" data-category="dsml">
+                    <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?q=80&w=1470" alt="Customer Segmentation Analysis" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <h3 class="absolute bottom-5 left-5 text-white text-2xl font-bold transition-all duration-500 group-hover:bottom-32">Customer Segmentation</h3>
+                    <div class="absolute bottom-0 left-0 w-full p-5 bg-black/80 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                        <p class="text-gray-200 text-sm mb-4">Used K-means clustering to segment customers based on purchasing behavior to help tailor marketing strategies.</p>
+                        <a href="https://github.com/WaleAdelanwa/customer-segmentation-" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 text-xs font-semibold rounded-full hover:bg-indigo-700 transition-colors">View More</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Sales Prediction -->
+                <div class="project-card aspect-square relative overflow-hidden rounded-lg shadow-xl group" data-category="dsml">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1470" alt="Sales Prediction" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <h3 class="absolute bottom-5 left-5 text-white text-2xl font-bold transition-all duration-500 group-hover:bottom-32">Sales Prediction</h3>
+                    <div class="absolute bottom-0 left-0 w-full p-5 bg-black/80 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                        <p class="text-gray-200 text-sm mb-4">Developed a machine learning model to predict future sales for a retail store, using regression models.</p>
+                        <a href="https://github.com/WaleAdelanwa/Sales-prediction" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 text-xs font-semibold rounded-full hover:bg-indigo-700 transition-colors">View More</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Sentiment Analysis -->
+                <div class="project-card aspect-square relative overflow-hidden rounded-lg shadow-xl group" data-category="dsml nlp">
+                    <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?q=80&w=1470" alt="Sentiment Analysis" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <h3 class="absolute bottom-5 left-5 text-white text-2xl font-bold transition-all duration-500 group-hover:bottom-32">Sentiment Analysis</h3>
+                    <div class="absolute bottom-0 left-0 w-full p-5 bg-black/80 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                        <p class="text-gray-200 text-sm mb-4">Utilized NLP techniques to analyze customer reviews and built a classification model to automate sentiment detection.</p>
+                        <a href="https://github.com/WaleAdelanwa/Sentiment-Analysis-of-Customer-Reviews" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 text-xs font-semibold rounded-full hover:bg-indigo-700 transition-colors">View More</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: Data Pipeline -->
+                <div class="project-card aspect-square relative overflow-hidden rounded-lg shadow-xl group" data-category="de">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1470" alt="Data Pipeline" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <h3 class="absolute bottom-5 left-5 text-white text-2xl font-bold transition-all duration-500 group-hover:bottom-32">Real-time Data Pipeline</h3>
+                    <div class="absolute bottom-0 left-0 w-full p-5 bg-black/80 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                        <p class="text-gray-200 text-sm mb-4">Implemented a data pipeline using Apache Kafka and Spark for real-time stream processing of large data volumes.</p>
+                        <a href="https://github.com/WaleAdelanwa/Data-Pipeline" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 text-xs font-semibold rounded-full hover:bg-indigo-700 transition-colors">View More</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 5: Market Basket Analysis -->
+                <div class="project-card aspect-square relative overflow-hidden rounded-lg shadow-xl group" data-category="dsml mi">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1374" alt="Market Basket Analysis" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <h3 class="absolute bottom-5 left-5 text-white text-2xl font-bold transition-all duration-500 group-hover:bottom-32">Market Basket Analysis</h3>
+                    <div class="absolute bottom-0 left-0 w-full p-5 bg-black/80 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                        <p class="text-gray-200 text-sm mb-4">Performed analysis to find product associations, providing insights for product placement and cross-selling strategies.</p>
+                        <a href="https://github.com/WaleAdelanwa/Market-Basket-Analysis" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 text-xs font-semibold rounded-full hover:bg-indigo-700 transition-colors">View More</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 6: Churn Prediction -->
+                <div class="project-card aspect-square relative overflow-hidden rounded-lg shadow-xl group" data-category="dsml">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e2775d2?q=80&w=1470" alt="Churn Prediction" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <h3 class="absolute bottom-5 left-5 text-white text-2xl font-bold transition-all duration-500 group-hover:bottom-32">Churn Prediction</h3>
+                    <div class="absolute bottom-0 left-0 w-full p-5 bg-black/80 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                        <p class="text-gray-200 text-sm mb-4">Built a predictive model to identify customers likely to churn, helping the company proactively retain customers.</p>
+                        <a href="https://github.com/WaleAdelanwa/Customer_Churn_Prediction" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 text-xs font-semibold rounded-full hover:bg-indigo-700 transition-colors">View More</a>
+                    </div>
+                </div>
+                
+              </div> <!-- End of Project Grid -->
+            </section>
+          </div>
         </main>
     </div>
+ <!-- JavaScript for Project Filtering -->
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('#project-filters .filter-btn');
+      const projectCards = document.querySelectorAll('#project-grid .project-card');
 
+      filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              // Set active state for the clicked button
+              filterButtons.forEach(btn => btn.classList.remove('active'));
+              button.classList.add('active');
+
+              const filterValue = button.getAttribute('data-filter');
+
+              // Show or hide cards based on the filter
+              projectCards.forEach(card => {
+                  const cardCategories = card.getAttribute('data-category');
+                  if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+                      card.style.display = 'block';
+                  } else {
+                      card.style.display = 'none';
+                  }
+              });
+          });
+      });
+  });
+</script>
 </body>
 </html>

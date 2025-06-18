@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { montserrat: ['Montserrat', 'sans-serif'] } } } };
+    </script>
+    <!-- read-more button -->
+     <style>
+      .read-more-btn:hover {
+        background-color: #4f46e5;
+        color: white;
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+    <!-- dark mode -->
+    <link rel="stylesheet" href="/tuggle.css">
+    <!-- javascript tag -->
+    <script src="Home.js" defer></script>
+    <title>Portfolio - About</title>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <!-- Overall container for sidebar + main content -->
+    <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
+        <!-- Sidebar for responsive screen-->
+        <div id="top-left-toggle">
+          <button id="dark-mode-toggle-responsive" class="toggle-btn">🌙</button>
+       </div>
+        <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
+            <!-- <button id="close-sidebar" class="self-end mb-4 text-xl text-gray-600 hover:text-black md:hidden">
+                <i class="fas fa-times"></i>
+            </button> -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-black">Portfolio</h1>
+            </div>
+            <ul class="mt-4 space-y-4">
+                <li><a href="index.html" class="text-black hover:text-amber-600">Home</a></li>
+                <li><a href="about.html" class="text-black hover:text-amber-600">About</a></li>
+                <li><a href="Publications.html" class="text-black hover:text-amber-600">Publications</a></li>
+                <li><a href="project.html" class="text-black hover:text-amber-600">Projects</a></li>
+                <li><a href="contact.html" class="text-black hover:text-amber-600">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hamburger Button -->
+        <button id="hamburger" class="fixed top-4 right-4 bg-gray-500 text-white p-2 rounded z-50 md:hidden">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Sidebar for larger screens -->
+        <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
+        <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
+          <div id="desktop-sidebar-toggle-container"><button id="dark-mode-toggle" class="toggle-btn">🌙</button></div>
+            <div class="mb-8 pt-16 md:pt-24">
+              
+              <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
+            </div>
+            <div class="flex flex-col items-center gap-5">
+              <a href="index.html" class="text-gray-500 hover:text-gray-800 text-lg">Home</a>
+              <a href="about.html" class="text-gray-500 hover:text-gray-800 text-lg">About</a>
+              <a href="Publications.html" class="text-gray-500 hover:text-gray-800 text-lg">Publications</a>
+              <a href="project.html" class="text-gray-500 hover:text-gray-800 text-lg">Projects</a>
+              <a href="contact.html" class="text-gray-500 hover:text-gray-800 text-lg">Contacts</a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <!--
+          - md:ml-1/4: Pushes the main content area to start after the 1/4 width fixed sidebar on medium screens and up.
+          - flex-1: Allows this main area to take up the remaining available width (3/4 of the screen) and height.
+          - flex flex-col items-center:
+            - flex-col: Stacks children vertically.
+            - items-center: Centers children (like the content wrapper div) horizontally within this main area.
+          - overflow-hidden: Ensures that if content inside tries to break out, it's clipped, important for scrolling setup.
+        -->
+        <main class="md:ml-1/4 flex-1 flex flex-col items-center bg-gray-50 overflow-hidden md:mr-1/4"></main>
+           <!-- Content Wrapper for centering and max-width -->
+           <!--
+             - w-full: Takes full width of its parent (main, which is 3/4 of screen).
+             - max-w-screen-lg: Constrains the content to a readable max width (e.g., 1024px).
+                                If 3/4 of screen width is larger than this, this div will be centered.
+                                This creates a natural gap from the sidebar.
+             - h-full: Ensures this wrapper takes the full height of the parent 'main' element,
+                       allowing the 'section' inside to correctly use flex-grow and overflow-y-auto.
+             - md:px-6 lg:px-8: Adds horizontal padding on medium/large screens, creating a further "gap"
+                                for the content from the edges of this wrapper.
+           -->
+           <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
+            <!-- Section takes available space, handles its own padding and scrolling -->
+            <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
+            
+              <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
+  <!-- Section takes available space, handles its own padding and scrolling -->
+  <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
+    <!-- Publications Section -->
+    <!-- Publications Section -->
+<div class="pt-16 md:pt-20 flex flex-col gap-3">
+  <div class="w-40 px-4 py-2 bg-gray-300 text-center">
+    <p class="font-medium text-gray-600 text-sm tracking-wider">PUBLICATIONS</p>
+  </div>
+  <h1 class="font-bold text-4xl md:text-5xl text-gray-800">My Publications</h1>
+</div>
+
+<!-- Filter Tabs -->
+<div class="flex gap-4 border-b border-gray-300 pb-4 gap-3">
+  <button id="all-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
+    All Publications
+  </button>
+  <button id="academic-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
+    Academic
+  </button>
+  <button id="industry-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
+    Industry
+  </button>
+  <button id="presentations-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
+    Presentations
+  </button>
+</div>
+
+<!-- Publications List -->
+<div id="publications-container" class="flex flex-col gap-6">
+  <!-- All Publications -->
+  <div id="all-publications" class="hidden">
+    <!-- Academic Publications -->
+    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+      <h2 class="font-bold text-lg">Earth Data Impact</h2>
+      <p class="text-gray-600 text-sm mt-2">
+        Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.
+      </p>
+      <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
+    </div>
+
+    <!-- Industry Publications -->
+    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+      <h2 class="font-bold text-lg">Industry Insights</h2>
+      <p class="text-gray-600 text-sm mt-2">
+        Adewale Adelanwa (2023). Leveraging Satellite Data for Business Growth in Africa: A Case Study. Industry Conference, Cape Town, South Africa.
+      </p>
+      <a href="https://example.com/industry-publication" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
+    </div>
+
+    <!-- Presentations -->
+    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+      <h2 class="font-bold text-lg">Presentation on Climate Change</h2>
+      <p class="text-gray-600 text-sm mt-2">
+        Adewale Adelanwa (2023). The Role of Earth Observation in Tackling Climate Change. Presented at Global Climate Summit, Nairobi, Kenya.
+      </p>
+      <a href="https://example.com/presentation" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
+    </div>
+  </div>
+
+  <!-- Academic Publications -->
+  <div id="academic-publications" class="hidden">
+    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+      <h2 class="font-bold text-lg">Earth Data Impact</h2>
+      <p class="text-gray-600 text-sm mt-2">
+        Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.
+      </p>
+      <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
+    </div>
+  </div>
+
+  <!-- Industry Publications -->
+  <div id="industry-publications" class="hidden">
+    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+      <h2 class="font-bold text-lg">Industry Insights</h2>
+      <p class="text-gray-600 text-sm mt-2">
+        Adewale Adelanwa (2023). Leveraging Satellite Data for Business Growth in Africa: A Case Study. Industry Conference, Cape Town, South Africa.
+      </p>
+      <a href="https://example.com/industry-publication" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
+    </div>
+  </div>
+
+  <!-- Presentations -->
+  <div id="presentations-publications" class="hidden">
+    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+      <h2 class="font-bold text-lg">Presentation on Climate Change</h2>
+      <p class="text-gray-600 text-sm mt-2">
+        Adewale Adelanwa (2023). The Role of Earth Observation in Tackling Climate Change. Presented at Global Climate Summit, Nairobi, Kenya.
+      </p>
+      <a href="https://example.com/presentation" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // JavaScript for tab functionality
+  const tabs = document.querySelectorAll('button[id$="-tab"]');
+  const sections = document.querySelectorAll('div[id$="-publications"]');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      // Hide all sections
+      sections.forEach((section) => section.classList.add('hidden'));
+
+      // Remove active styles from all tabs
+      tabs.forEach((t) => t.classList.remove('border-gray-800', 'text-gray-800'));
+
+      // Show the selected section
+      const sectionId = tab.id.replace('-tab', '-publications');
+      document.getElementById(sectionId).classList.remove('hidden');
+
+      // Add active styles to the selected tab
+      tab.classList.add('border-gray-800', 'text-gray-800');
+    });
+  });
+</script>
+
+              
+            </section>
+          </div>
+        </main>
+    </div>
+
+</body>
+</html>
