@@ -94,131 +94,171 @@
                                 for the content from the edges of this wrapper.
            -->
            <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
-            <!-- Section takes available space, handles its own padding and scrolling -->
+            <!-- Section with scrolling -->
             <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
-            
-              <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
-  <!-- Section takes available space, handles its own padding and scrolling -->
-  <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
-    <!-- Publications Section -->
-    <!-- Publications Section -->
-<div class="pt-16 md:pt-20 flex flex-col gap-3">
-  <div class="w-40 px-4 py-2 bg-gray-300 text-center">
-    <p class="font-medium text-gray-600 text-sm tracking-wider">PUBLICATIONS</p>
-  </div>
-  <h1 class="font-bold text-4xl md:text-5xl text-gray-800">My Publications</h1>
-</div>
+                <!-- Publications Section Header -->
+                <div class="pt-16 md:pt-20 flex flex-col gap-3">
+                    <div class="w-40 px-4 py-2 bg-gray-300 text-center">
+                        <p class="font-medium text-gray-600 text-sm tracking-wider">PUBLICATIONS</p>
+                    </div>
+                    <h1 class="font-bold text-4xl md:text-5xl text-gray-800">My Publications</h1>
+                </div>
 
-<!-- Filter Tabs -->
-<div class="flex gap-4 border-b border-gray-300 pb-4 gap-3">
-  <button id="all-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
-    All Publications
-  </button>
-  <button id="academic-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
-    Academic
-  </button>
-  <button id="industry-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
-    Industry
-  </button>
-  <button id="presentations-tab" class="text-gray-600 hover:text-gray-800 font-medium px-4 py-2 border-b-2 border-transparent hover:border-gray-800 transition-all">
-    Presentations
-  </button>
-</div>
+                <!-- START: UPDATED CATEGORY BUTTONS -->
+                <div id="category-filters" class="flex flex-wrap items-center gap-3 mb-4">
+                    <button data-target="all" class="category-btn px-4 py-2 rounded-md font-medium text-sm shadow-sm transition-all duration-300 transform hover:scale-105">All</button>
+                    <button data-target="academic" class="category-btn px-4 py-2 rounded-md font-medium text-sm shadow-sm transition-all duration-300 transform hover:scale-105">Academic</button>
+                    <button data-target="industry" class="category-btn px-4 py-2 rounded-md font-medium text-sm shadow-sm transition-all duration-300 transform hover:scale-105">Industry</button>
+                    <button data-target="presentations" class="category-btn px-4 py-2 rounded-md font-medium text-sm shadow-sm transition-all duration-300 transform hover:scale-105">Presentations</button>
+                </div>
+                <!-- END: UPDATED CATEGORY BUTTONS -->
 
-<!-- Publications List -->
-<div id="publications-container" class="flex flex-col gap-6">
-  <!-- All Publications -->
-  <div id="all-publications" class="hidden">
-    <!-- Academic Publications -->
-    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
-      <h2 class="font-bold text-lg">Earth Data Impact</h2>
-      <p class="text-gray-600 text-sm mt-2">
-        Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.
-      </p>
-      <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
-    </div>
+                <!-- START: UPDATED PUBLICATIONS LIST -->
+                <div id="publications-container" class="flex flex-col gap-8">
 
-    <!-- Industry Publications -->
-    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
-      <h2 class="font-bold text-lg">Industry Insights</h2>
-      <p class="text-gray-600 text-sm mt-2">
-        Adewale Adelanwa (2023). Leveraging Satellite Data for Business Growth in Africa: A Case Study. Industry Conference, Cape Town, South Africa.
-      </p>
-      <a href="https://example.com/industry-publication" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
-    </div>
+                    <!-- "All" Category Container -->
+                    <div id="all" class="publication-category flex flex-col gap-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Academic</h3>
+                            <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Data Impact</h2>
+                            <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.</p>
+                            <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Industry</h3>
+                            <h2 class="font-bold text-xl text-gray-800 mt-1">Transforming Space Economies</h2>
+                            <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa (2023). Leveraging Satellite Data for Business Growth in Africa: A Case Study. Industry Conference, Cape Town, South Africa.</p>
+                            <a href="https://dl.iafastro.directory/event/IAC-2023/paper/79016/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
+                            <h2 class="font-bold text-xl text-gray-800 mt-1">Cyclone Preparedness Mozambique</h2>
+                            <p class="text-gray-600 text-sm mt-2">Mustapha Iderawumi, Adewale Adelanwa (2022). Improving the preparedness of Mozambique Against Cyclone Events. IAC 2022, 73rd International Astronautical Congress, Paris, France.</p>
+                            <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68144/
+                            " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                          <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
+                          <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Observation Mitigation</h2>
+                          <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Anna Aikohi, Mustapha Iderawumi (2022). Leveraging Earth Observation Data for Mitigating the adverse Effects of Global Warming and Climate
+                            Change. IAC 2022, Paris, France.</p>
+                          <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68142/
+                          " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                      </div>
+                      <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
+                        <h2 class="font-bold text-xl text-gray-800 mt-1">Incentivizing Space Growth</h2>
+                        <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Somto Uba (2022). Taxation Incentives: A Tool for Fast-Tracking the Growth of Emerging NewSpace Industries. Case Study: Africa. IAC 2022, Paris, France.</p>
+                        <a href="https://dl.iafastro.directory/event/IAC-2022/paper/67961/
+                        " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                    </div>
+                    </div>
 
-    <!-- Presentations -->
-    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
-      <h2 class="font-bold text-lg">Presentation on Climate Change</h2>
-      <p class="text-gray-600 text-sm mt-2">
-        Adewale Adelanwa (2023). The Role of Earth Observation in Tackling Climate Change. Presented at Global Climate Summit, Nairobi, Kenya.
-      </p>
-      <a href="https://example.com/presentation" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
-    </div>
-  </div>
+                    <!-- "Academic" Category Container -->
+                    <div id="academic" class="publication-category hidden flex-col gap-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Academic</h3>
+                            <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Data Impact</h2>
+                            <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.</p>
+                            <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                        </div>
 
-  <!-- Academic Publications -->
-  <div id="academic-publications" class="hidden">
-    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
-      <h2 class="font-bold text-lg">Earth Data Impact</h2>
-      <p class="text-gray-600 text-sm mt-2">
-        Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.
-      </p>
-      <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
-    </div>
-  </div>
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                          <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Academic</h3>
+                          <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Observation Mitigation</h2>
+                          <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Anna Aikohi, Mustapha Iderawumi (2022). Leveraging Earth Observation Data for Mitigating the adverse Effects of Global Warming and Climate
+                            Change. IAC 2022, Paris, France.</p>
+                          <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68142/
+                          " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                      </div>
+                    </div>
 
-  <!-- Industry Publications -->
-  <div id="industry-publications" class="hidden">
-    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
-      <h2 class="font-bold text-lg">Industry Insights</h2>
-      <p class="text-gray-600 text-sm mt-2">
-        Adewale Adelanwa (2023). Leveraging Satellite Data for Business Growth in Africa: A Case Study. Industry Conference, Cape Town, South Africa.
-      </p>
-      <a href="https://example.com/industry-publication" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
-    </div>
-  </div>
+                    <!-- "Industry" Category Container -->
+                    <div id="industry" class="publication-category hidden flex-col gap-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Industry</h3>
+                            <h2 class="font-bold text-xl text-gray-800 mt-1">Transforming Space Economies</h2>
+                            <p class="text-gray-600 text-sm mt-2">Anna Aikohi, Adewale Adelanwa (2023). Socioeconomic Policy: A Transformational Tool for Developing Emerging Space Markets. Case Study: Africa. IAC 2023, 74th International Astronautical Congress, Baku, Azerbaijan.</p>
+                            <a href="https://dl.iafastro.directory/event/IAC-2023/paper/79016/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                        </div>
 
-  <!-- Presentations -->
-  <div id="presentations-publications" class="hidden">
-    <div class="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
-      <h2 class="font-bold text-lg">Presentation on Climate Change</h2>
-      <p class="text-gray-600 text-sm mt-2">
-        Adewale Adelanwa (2023). The Role of Earth Observation in Tackling Climate Change. Presented at Global Climate Summit, Nairobi, Kenya.
-      </p>
-      <a href="https://example.com/presentation" target="_blank" class="text-blue-500 text-sm mt-4 inline-block">Read More</a>
-    </div>
-  </div>
-</div>
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                          <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Industry</h3>
+                          <h2 class="font-bold text-xl text-gray-800 mt-1">Incentivizing Space Growth</h2>
+                          <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Somto Uba (2022). Taxation Incentives: A Tool for Fast-Tracking the Growth of Emerging NewSpace Industries. Case Study: Africa. IAC 2022, Paris, France.</p>
+                          <a href="https://dl.iafastro.directory/event/IAC-2022/paper/67961/
+                          " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                      </div>
+                    </div>
 
-<script>
-  // JavaScript for tab functionality
-  const tabs = document.querySelectorAll('button[id$="-tab"]');
-  const sections = document.querySelectorAll('div[id$="-publications"]');
+                    <!-- "Presentations" Category Container -->
+                    <div id="presentations" class="publication-category hidden flex-col gap-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
+                            <h2 class="font-bold text-xl text-gray-800 mt-1">Cyclone Preparedness Mozambique</h2>
+                            <p class="text-gray-600 text-sm mt-2">Mustapha Iderawumi, Adewale Adelanwa (2022). Improving the preparedness of Mozambique Against Cyclone Events. IAC 2022, 73rd International Astronautical Congress, Paris, France.</p>
+                            <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68144/
+                            " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: UPDATED PUBLICATIONS LIST -->
 
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      // Hide all sections
-      sections.forEach((section) => section.classList.add('hidden'));
+                <!-- START: NEW JAVASCRIPT FOR FILTERING -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const filterButtons = document.querySelectorAll('.category-btn');
+                        const publicationCategories = document.querySelectorAll('.publication-category');
 
-      // Remove active styles from all tabs
-      tabs.forEach((t) => t.classList.remove('border-gray-800', 'text-gray-800'));
+                        const activeClasses = ['bg-indigo-600', 'text-white', 'shadow-md'];
+                        const inactiveClasses = ['bg-gray-200', 'text-gray-700', 'hover:bg-indigo-500', 'hover:text-white'];
 
-      // Show the selected section
-      const sectionId = tab.id.replace('-tab', '-publications');
-      document.getElementById(sectionId).classList.remove('hidden');
+                        function setFilter(targetId) {
+                            // Hide all categories
+                            publicationCategories.forEach(category => {
+                                category.classList.add('hidden');
+                            });
 
-      // Add active styles to the selected tab
-      tab.classList.add('border-gray-800', 'text-gray-800');
-    });
-  });
-</script>
+                            // Deactivate all buttons
+                            filterButtons.forEach(btn => {
+                                btn.classList.remove(...activeClasses);
+                                btn.classList.add(...inactiveClasses);
+                            });
+                            
+                            // Find the button and category to activate
+                            const buttonToActivate = document.querySelector(`button[data-target="${targetId}"]`);
+                            const categoryToShow = document.getElementById(targetId);
 
-              
+                            // Activate the target button and show the target category
+                            if (buttonToActivate) {
+                                buttonToActivate.classList.add(...activeClasses);
+                                buttonToActivate.classList.remove(...inactiveClasses);
+                            }
+                            if (categoryToShow) {
+                                categoryToShow.classList.remove('hidden');
+                            }
+                        }
+
+                        // Add click event listeners to all filter buttons
+                        filterButtons.forEach(button => {
+                            button.addEventListener('click', () => {
+                                const targetId = button.dataset.target;
+                                setFilter(targetId);
+                            });
+                        });
+
+                        // Set the initial state on page load to "All"
+                        setFilter('all');
+                    });
+                </script>
+                <!-- END: NEW JAVASCRIPT FOR FILTERING -->
+
             </section>
-          </div>
-        </main>
+        </div>
+      </main>
     </div>
+</main>
+</div>
 
 </body>
 </html>
