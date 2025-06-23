@@ -77,8 +77,6 @@ function validateEmail(email) {
         transition: all 0.3s ease-in-out;
       }
     </style>
-    <!-- dark mode tuggle -->
-    <link rel="stylesheet" href="/tuggle.css">
     <!-- javascript tag -->
     <script src="Home.js" defer></script>
     <title>Portfolio - About</title>
@@ -87,9 +85,6 @@ function validateEmail(email) {
     <!-- Overall container for sidebar + main content -->
     <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
         <!-- Sidebar for responsive screen-->
-        <div id="top-left-toggle">
-          <button id="dark-mode-toggle-responsive" class="toggle-btn">🌙</button>
-       </div>
         <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
             <!-- <button id="close-sidebar" class="self-end mb-4 text-xl text-gray-600 hover:text-black md:hidden">
                 <i class="fas fa-times"></i>
@@ -114,7 +109,6 @@ function validateEmail(email) {
         <!-- Sidebar for larger screens -->
         <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
         <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
-          <div id="desktop-sidebar-toggle-container"><button id="dark-mode-toggle" class="toggle-btn">🌙</button></div>
             <div class="mb-8 pt-16 md:pt-24">
               <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
             </div>
@@ -130,8 +124,6 @@ function validateEmail(email) {
 
         <main class="md:ml-1/4 flex-1 flex flex-col items-center bg-gray-50 overflow-hidden md:mr-1/4"></main>
       
-         
-           <main class="md:ml-1/4 flex-1 flex flex-col items-center bg-gray-50 overflow-hidden md:mr-1/4">
             <!-- Content Wrapper -->
             <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
               <!-- Contact Section -->
@@ -169,7 +161,7 @@ function validateEmail(email) {
                   <div class="w-full h-64 bg-gray-200 rounded-lg overflow-hidden">
                     <!-- Placeholder for Map -->
                     <iframe 
-                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16390539.323101893!2d-8.579296636098816!3d45.756772784028904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bdc9393640e59%3A0x6078a09cadbaa8ff!2sAbaddon%20Tree%20Services!5e1!3m2!1sen!2sng!4v1749497646065!5m2!1sen!2sng" 
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54946.462417541545!2d-0.6378977037827107!3d53.218267433913084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48780ccb711104fb%3A0x36603dcfe8c7ddc7!2sLincoln%2C%20UK!5e1!3m2!1sen!2sng!4v1750691449178!5m2!1sen!2sng"  
                       width="100%" 
                       height="100%" 
                       style="border:0;" 

@@ -21,8 +21,6 @@
         transition: all 0.3s ease-in-out;
       }
     </style>
-    <!-- dark mode -->
-    <link rel="stylesheet" href="/tuggle.css">
     <!-- javascript tag -->
     <script src="Home.js" defer></script>
     <title>Portfolio - About</title>
@@ -31,9 +29,6 @@
     <!-- Overall container for sidebar + main content -->
     <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
         <!-- Sidebar for responsive screen-->
-        <div id="top-left-toggle">
-          <button id="dark-mode-toggle-responsive" class="toggle-btn">🌙</button>
-       </div>
         <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
             <!-- <button id="close-sidebar" class="self-end mb-4 text-xl text-gray-600 hover:text-black md:hidden">
                 <i class="fas fa-times"></i>
@@ -58,9 +53,8 @@
         <!-- Sidebar for larger screens -->
         <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
         <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
-          <div id="desktop-sidebar-toggle-container"><button id="dark-mode-toggle" class="toggle-btn">🌙</button></div>
-            <div class="mb-8 pt-16 md:pt-24">
-              
+
+            <div class="mb-8 pt-16 md:pt-24">  
               <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
             </div>
             <div class="flex flex-col items-center gap-5">
@@ -120,26 +114,22 @@
                     <div id="all" class="publication-category flex flex-col gap-8">
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                             <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Academic</h3>
-                            <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Data Impact</h2>
                             <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.</p>
                             <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
                         </div>
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                             <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Industry</h3>
-                            <h2 class="font-bold text-xl text-gray-800 mt-1">Transforming Space Economies</h2>
                             <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa (2023). Leveraging Satellite Data for Business Growth in Africa: A Case Study. Industry Conference, Cape Town, South Africa.</p>
                             <a href="https://dl.iafastro.directory/event/IAC-2023/paper/79016/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
                         </div>
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                             <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
-                            <h2 class="font-bold text-xl text-gray-800 mt-1">Cyclone Preparedness Mozambique</h2>
                             <p class="text-gray-600 text-sm mt-2">Mustapha Iderawumi, Adewale Adelanwa (2022). Improving the preparedness of Mozambique Against Cyclone Events. IAC 2022, 73rd International Astronautical Congress, Paris, France.</p>
                             <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68144/
                             " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
                         </div>
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                           <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
-                          <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Observation Mitigation</h2>
                           <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Anna Aikohi, Mustapha Iderawumi (2022). Leveraging Earth Observation Data for Mitigating the adverse Effects of Global Warming and Climate
                             Change. IAC 2022, Paris, France.</p>
                           <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68142/
@@ -147,7 +137,6 @@
                       </div>
                       <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                         <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
-                        <h2 class="font-bold text-xl text-gray-800 mt-1">Incentivizing Space Growth</h2>
                         <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Somto Uba (2022). Taxation Incentives: A Tool for Fast-Tracking the Growth of Emerging NewSpace Industries. Case Study: Africa. IAC 2022, Paris, France.</p>
                         <a href="https://dl.iafastro.directory/event/IAC-2022/paper/67961/
                         " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
@@ -158,14 +147,12 @@
                     <div id="academic" class="publication-category hidden flex-col gap-8">
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                             <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Academic</h3>
-                            <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Data Impact</h2>
                             <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa (2023). Exploring the Potential of Earth Observation Data in Africa: How Weather Data is Impacting the Continent. GLOC, Oslo, Norway.</p>
                             <a href="https://dl.iafastro.directory/event/GLOC-2023/paper/74978/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
                         </div>
 
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                          <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Academic</h3>
-                          <h2 class="font-bold text-xl text-gray-800 mt-1">Earth Observation Mitigation</h2>
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Academic</h3>
                           <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Anna Aikohi, Mustapha Iderawumi (2022). Leveraging Earth Observation Data for Mitigating the adverse Effects of Global Warming and Climate
                             Change. IAC 2022, Paris, France.</p>
                           <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68142/
@@ -177,14 +164,12 @@
                     <div id="industry" class="publication-category hidden flex-col gap-8">
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                             <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Industry</h3>
-                            <h2 class="font-bold text-xl text-gray-800 mt-1">Transforming Space Economies</h2>
                             <p class="text-gray-600 text-sm mt-2">Anna Aikohi, Adewale Adelanwa (2023). Socioeconomic Policy: A Transformational Tool for Developing Emerging Space Markets. Case Study: Africa. IAC 2023, 74th International Astronautical Congress, Baku, Azerbaijan.</p>
                             <a href="https://dl.iafastro.directory/event/IAC-2023/paper/79016/" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
                         </div>
 
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                          <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Industry</h3>
-                          <h2 class="font-bold text-xl text-gray-800 mt-1">Incentivizing Space Growth</h2>
+                            <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Industry</h3>
                           <p class="text-gray-600 text-sm mt-2">Adewale Adelanwa, Somto Uba (2022). Taxation Incentives: A Tool for Fast-Tracking the Growth of Emerging NewSpace Industries. Case Study: Africa. IAC 2022, Paris, France.</p>
                           <a href="https://dl.iafastro.directory/event/IAC-2022/paper/67961/
                           " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>
@@ -195,7 +180,6 @@
                     <div id="presentations" class="publication-category hidden flex-col gap-8">
                         <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                             <h3 class="text-xs font-bold text-indigo-600 tracking-widest uppercase">Presentation</h3>
-                            <h2 class="font-bold text-xl text-gray-800 mt-1">Cyclone Preparedness Mozambique</h2>
                             <p class="text-gray-600 text-sm mt-2">Mustapha Iderawumi, Adewale Adelanwa (2022). Improving the preparedness of Mozambique Against Cyclone Events. IAC 2022, 73rd International Astronautical Congress, Paris, France.</p>
                             <a href="https://dl.iafastro.directory/event/IAC-2022/paper/68144/
                             " target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-4 inline-block font-semibold">Read More →</a>

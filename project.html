@@ -26,7 +26,7 @@
       .filter-btn {
         padding: 0.5rem 1rem;
         border: 1px solid #d1d5db; /* gray-300 */
-        border-radius: 9999px;
+        border-radius: 5px;
         font-weight: 500;
         color: #4b5563; /* gray-600 */
         transition: all 0.3s ease;
@@ -57,8 +57,6 @@
         color: white;
       }
     </style>
-    <!-- dark mode tuggle -->
-    <link rel="stylesheet" href="/tuggle.css">
     <!-- javascript tag -->
     <script src="Home.js" defer></script>
     <title>Portfolio - About</title>
@@ -67,9 +65,6 @@
     <!-- Overall container for sidebar + main content -->
     <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
         <!-- Sidebar for responsive screen-->
-        <div id="top-left-toggle">
-          <button id="dark-mode-toggle-responsive" class="toggle-btn">🌙</button>
-       </div>
         <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
             <!-- <button id="close-sidebar" class="self-end mb-4 text-xl text-gray-600 hover:text-black md:hidden">
                 <i class="fas fa-times"></i>
@@ -94,7 +89,6 @@
         <!-- Sidebar for larger screens -->
         <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
         <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
-          <div id="desktop-sidebar-toggle-container"><button id="dark-mode-toggle" class="toggle-btn">🌙</button></div>
             <div class="mb-8 pt-16 md:pt-24">
               <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
             </div>
@@ -107,32 +101,14 @@
             </div>
         </nav>
 
-        <!-- Main Content Area -->
-        <!--
-          - md:ml-1/4: Pushes the main content area to start after the 1/4 width fixed sidebar on medium screens and up.
-          - flex-1: Allows this main area to take up the remaining available width (3/4 of the screen) and height.
-          - flex flex-col items-center:
-            - flex-col: Stacks children vertically.
-            - items-center: Centers children (like the content wrapper div) horizontally within this main area.
-          - overflow-hidden: Ensures that if content inside tries to break out, it's clipped, important for scrolling setup.
-        -->
+       
         <main class="md:ml-1/4 flex-1 flex flex-col items-center bg-gray-50 overflow-hidden md:mr-1/4"></main>
-           <!-- Content Wrapper for centering and max-width -->
-           <!--
-             - w-full: Takes full width of its parent (main, which is 3/4 of screen).
-             - max-w-screen-lg: Constrains the content to a readable max width (e.g., 1024px).
-                                If 3/4 of screen width is larger than this, this div will be centered.
-                                This creates a natural gap from the sidebar.
-             - h-full: Ensures this wrapper takes the full height of the parent 'main' element,
-                       allowing the 'section' inside to correctly use flex-grow and overflow-y-auto.
-             - md:px-6 lg:px-8: Adds horizontal padding on medium/large screens, creating a further "gap"
-                                for the content from the edges of this wrapper.
-           -->
+           
            <div class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8">
             <!-- Section takes available space, handles its own padding and scrolling -->
-            <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
+            <section class="flex flex-col flex-grow p-6 md:p-8 overflow-y-auto gap-5">
               <!-- Text content block -->
-              <div class="pt-16 md:pt-20 flex flex-col gap-3">
+              <div class="pt-5 md:pt-20 flex flex-col gap-3">
                 <div class="w-40 px-4 py-2 bg-gray-300 text-center">
                   <p class="font-medium text-gray-600 text-sm tracking-wider">PROJECTS</p>
                 </div>
@@ -140,11 +116,11 @@
               </div>
 
               <!-- Content Wrapper -->
-           <div class="w-full max-w-screen-xl h-full flex flex-col md:px-6 lg:px-8">
+        
             <!-- Section with padding and scrolling -->
             <section class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10">
               <!-- Filter Buttons -->
-              <div id="project-filters" class="flex flex-wrap justify-center gap-2 md:gap-4 my-8">
+              <div id="project-filters" class="flex flex-wrap justify-center gap-2 md:gap-4 my-2">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="dsml">Data Science & ML</button>
                 <button class="filter-btn" data-filter="de">Data Engineering</button>
@@ -235,7 +211,6 @@
                 
               </div> <!-- End of Project Grid -->
             </section>
-          </div>
         </main>
     </div>
  <!-- JavaScript for Project Filtering -->
