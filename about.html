@@ -31,13 +31,10 @@
     <!-- Overall container for sidebar + main content -->
     <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
         <!-- Sidebar for responsive screen-->
-      <div id="top-left-toggle">
-          <button id="dark-mode-toggle-responsive" class="toggle-btn">🌙</button>
-      </div>
         <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
         
             <div class="mb-8">
-                <h1 class="text-2xl font-bold text-black">Portfolio</h1>
+                <h1 class="text-2xl font-bold text-black">Adewale</h1>
             </div>
             <ul class="mt-4 space-y-4">
                 <li><a href="index.html" class="text-black hover:text-amber-800">Home</a></li>
@@ -55,10 +52,9 @@
         <!-- Sidebar for larger screens -->
         <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
         <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
-          <div id="desktop-sidebar-toggle-container"><button id="dark-mode-toggle" class="toggle-btn">🌙</button></div>
         
             <div class="mb-8 pt-16 md:pt-24">
-              <h1 class="text-3xl font-bold text-black text-center">Portfolio</h1>
+              <h1 class="text-3xl font-bold text-black text-center">Adewale</h1>
             </div>
             <div class="flex flex-col items-center gap-5">
               <a href="index.html" class="text-gray-500 hover:text-gray-800 text-lg">Home</a>
@@ -104,8 +100,8 @@
                 </div>
                 <!-- Image container -->
                 <div class="flex-grow min-h-0">
-                    <div class="relative w-full h-full group">
-                      <img class="w-full h-22 object-cover rounded-lg shadow-lg transition-transform duration-700 transform-gpu group-hover:scale-110" src="/resources/Mr wale .jpg" alt="A profile picture of Mr. Wale">
+                    <div class="relative w-full h-25 group">
+                      <img class="w-full h-15 object-cover rounded-lg shadow-lg transition-transform duration-300 transform-gpu group-hover:scale-100" src="/resources/Mr wale .jpg" alt="A profile picture of Mr. Wale">
                     </div>
                 </div>
               
@@ -130,83 +126,143 @@
                 <div class="bg-gray-200 w-full h-0.5"></div> 
 
                <!-- Knowledge Areas -->
-                <div class="p-20 -mx-4 shadow-lg">
-                  <div class="grid grid-cols-2 gap-4">
-                    <!-- Left List -->
-                    <ul class="space-y-2">
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Machine Learning (Supervised, Unsupervised, Deep Learning, Reinforcement Learning)
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Natural Language Processing (NLP)
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Predictive Analytics & Forecasting
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Data Preprocessing & Feature Engineering
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Model Evaluation & Validation (Cross-validation, ROC-AUC, Confusion Matrix)
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Classical ML Algorithms (SVM, k-NN, Decision Trees, Naïve Bayes)
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Neural Network Architecture Design
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Explainable AI (XAI) & Interpretability Techniques
-                      </li>
-                    </ul>
-                
-                    <!-- Right List -->
-                    <ul class="space-y-2">
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Image Processing & Computer Vision
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Scientific Research & Technical Writing
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Public Health Analytics & Clinical ML
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Climate and Earth Observation Data Analysis
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Research Design, Publishing & Conference Presentation
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Ethics in AI & Responsible ML
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Entrepreneurship & Innovation in AI
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Building AI startups and scaling solutions
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Product development & go-to-market strategy
-                      </li>
-                      <li class="flex items-center text-gray-500 text-sm">
-                        <i class="fas fa-caret-right text-black mr-2 "></i> Business modelling and tech-driven impact
-                      </li>
-                    </ul>
+               <div class="p-20 shadow-lg">
+                <h2 class="text-xl font-bold mb-6">Knowledge Areas</h2>
+                <div class="space-y-4">
+                  <!-- Data Science & Engineering -->
+                  <div class="dropdown">
+                    <div class="dropdown-header flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded">
+                      <span>Data Science & Engineering</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content hidden bg-gray-50 p-4 rounded">
+                      <ul class="text-left">
+                        <li>Data wrangling, transformation, and cleaning</li>
+                        <li>Building data pipelines (ETL/ELT)</li>
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <!-- Machine Learning & Deep Learning -->
+                  <div class="dropdown">
+                    <div class="dropdown-header flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded">
+                      <span>Machine Learning & Deep Learning</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content hidden bg-gray-50 p-4 rounded">
+                      <ul class="text-left">
+                        <li>Regression/classification models (XGBoost, Random Forests)</li>
+                        <li>Deep learning architectures (CNNs, RNNs, Transformers)</li>
+                        <li>Frameworks: PyTorch, TensorFlow, Keras</li>
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <!-- Natural Language & Image Processing -->
+                  <div class="dropdown">
+                    <div class="dropdown-header flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded">
+                      <span>Natural Language & Image Processing</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content hidden bg-gray-50 p-4 rounded">
+                      <ul class="text-left">
+                        <li>NLP tasks: Text classification, summarization, NER, sentiment analysis</li>
+                        <li>Vision tasks: Image classification, segmentation, object detection</li>
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <!-- Applied Analytics -->
+                  <div class="dropdown">
+                    <div class="dropdown-header flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded">
+                      <span>Applied Analytics</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content hidden bg-gray-50 p-4 rounded">
+                      <ul class="text-left">
+                        <li>Business intelligence, KPIs, A/B testing</li>
+                        <li>Dashboarding: Power BI, Tableau, Streamlit</li>
+                        <li>Experimentation & data-driven decision-making</li>
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <!-- Research & Communication -->
+                  <div class="dropdown">
+                    <div class="dropdown-header flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded">
+                      <span>Research & Communication</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content hidden bg-gray-50 p-4 rounded">
+                      <ul class="text-left">
+                        <li>Research design and experimentation</li>
+                        <li>Writing insights and reports for both technical and non-technical audiences</li>
+                        <li>Public speaking, workshops, and presenting results</li>
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <!-- Innovation & Entrepreneurship in AI -->
+                  <div class="dropdown">
+                    <div class="dropdown-header flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded">
+                      <span>Innovation & Entrepreneurship in AI</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content hidden bg-gray-50 p-4 rounded">
+                      <ul class="text-left">
+                        <li>Ideation of AI product solutions</li>
+                        <li>Understanding market problems and how AI can solve them</li>
+                        <li>Building MVPs and AI-driven startups</li>
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <!-- Business Strategy & Product Development -->
+                  <div class="dropdown">
+                    <div class="dropdown-header flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded">
+                      <span>Business Strategy & Product Development</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-content hidden bg-gray-50 p-4 rounded">
+                      <ul class="text-left">
+                        <li>Linking AI capabilities to product-market fit</li>
+                        <li>Developing GTM strategies for AI tools/products</li>
+                        <li>Agile methodologies, product lifecycle understanding</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+              </div>
+              
+              <script>
+                document.querySelectorAll('.dropdown-header').forEach(header => {
+                  header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    content.classList.toggle('hidden');
+                    const icon = header.querySelector('i');
+                    icon.classList.toggle('rotate-270'); // Add rotation class
+                  });
+                });
+              </script>
+              
+              <style>
+                .rotate-270 {
+                  transform: rotate(270deg);
+                }
+              </style>
 
-
+                
               <!-- Programming & Technical Skills -->
               <section id="skills" class=" py-12">
                 <div class="container mx-auto px-6 shadow-lg bg-white p-8 rounded-lg" style="box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);">
                   <h2 class="text-2xl font-bold text-gray-800 mb-6">Programming & Technical Skills</h2>
-                  <div class="grid grid-cols-2 gap-6">
+                  <div class="grid grid-col gap-6">
                     <!-- Left Column -->
                     <ul class="space-y-6">
                       <li>
                         <div class="flex justify-between items-center">
-                          <span class="text-gray-700 text-sm font-medium">Python (NumPy, pandas, scikit-learn, matplotlib, seaborn)</span>
+                          <span class="text-gray-700 text-sm font-medium">Python
+                          </span>
                           <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
                             <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="95"></div>
                           </div>
@@ -215,7 +271,7 @@
                       </li>
                       <li>
                         <div class="flex justify-between items-center">
-                          <span class="text-gray-700 text-sm font-medium">R (Data wrangling, statistical analysis, visualisation)</span>
+                          <span class="text-gray-700 text-sm font-medium">R</span>
                           <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
                             <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="85"></div>
                           </div>
@@ -233,7 +289,7 @@
                       </li>
                       <li>
                         <div class="flex justify-between items-center">
-                          <span class="text-gray-700 text-sm font-medium">PyTorch, TensorFlow, Keras</span>
+                          <span class="text-gray-700 text-sm font-medium">SQL</span>
                           <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
                             <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="80"></div>
                           </div>
@@ -242,17 +298,13 @@
                       </li>
                       <li>
                         <div class="flex justify-between items-center">
-                          <span class="text-gray-700 text-sm font-medium">OpenCV, scikit-image, SimpleITK, pydicom</span>
+                          <span class="text-gray-700 text-sm font-medium">Bash / Shell Scripting</span>
                           <div class="w-1/2 bg-gray-200 rounded-full h-2.5 relative overflow-hidden">
                             <div class="bg-gray-500 h-2.5 rounded-full progress-bar" data-percentage="75"></div>
                           </div>
                         </div>
                         <span class="text-gray-600 text-xs mt-1 block text-right">75%</span>
                       </li>
-                    </ul>
-              
-                    <!-- Right Column -->
-                    <ul class="space-y-6">
                       <li>
                         <div class="flex justify-between items-center">
                           <span class="text-gray-700 text-sm font-medium">Git, GitHub, Docker, Linux (Ubuntu)</span>
@@ -299,9 +351,34 @@
                         <span class="text-gray-600 text-xs mt-1 block text-right">85%</span>
                       </li>
                     </ul>
+                   
                   </div>
                 </div>
               </section>
+
+              <script>
+                // Function to check if an element is in the viewport
+                function isInViewport(element) {
+                  const rect = element.getBoundingClientRect();
+                  return rect.top >= 0 && rect.bottom <= window.innerHeight;
+                }
+              
+                // Animate progress bars when the section is in view
+                const skillsSection = document.getElementById('skills');
+                const progressBars = document.querySelectorAll('.progress-bar');
+                let animated = false;
+              
+                window.addEventListener('scroll', () => {
+                  if (isInViewport(skillsSection) && !animated) {
+                    animated = true; // Ensure animation only triggers once
+                    progressBars.forEach(bar => {
+                      const percentage = bar.getAttribute('data-percentage');
+                      bar.style.transition = 'width 1.5s ease-in-out';
+                      bar.style.width = `${percentage}%`;
+                    });
+                  }
+                });
+              </script>
               <!-- End of Programming & Technical Skills Section -->
 
               <div class="bg-gray-200 w-full h-0.5"></div> 
