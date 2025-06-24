@@ -31,17 +31,15 @@
     <!-- Overall container for sidebar + main content -->
     <div class="flex flex-col md:flex-row min-h-screen"> <!-- Changed h-screen to min-h-screen for content exceeding screen height -->
         <!-- Sidebar for responsive screen-->
-        <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-gray-100 p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
+        <nav id="responsive-sidebar" class="fixed top-0 right-0 w-1/2 h-full bg-black p-6 flex flex-col items-start shadow-lg transform translate-x-full transition-transform duration-500 z-50 md:hidden">
         
-            <div class="mb-8">
-                <h1 class="text-2xl font-bold text-black">Adewale</h1>
-            </div>
+          <div class="mb-8"><h1 class="text-2xl font-bold text-white dark:text-white">Adewale</h1></div>
             <ul class="mt-4 space-y-4">
-                <li><a href="index.html" class="text-black hover:text-amber-800">Home</a></li>
-                <li><a href="about.html" class="text-black hover:text-amber-800">About</a></li>
-                <li><a href="Publications.html" class="text-black hover:text-amber-800">Publications</a></li>
-                <li><a href="project.html" class="text-black hover:text-amber-800">Projects</a></li>
-                <li><a href="contact.html" class="text-black hover:text-amber-800">Contact</a></li>
+                <li><a href="index.html" class="nav-link text-gray-500 hover:text-amber-800">Home</a></li>
+                <li><a href="about.html" class="nav-link text-gray-500 hover:text-amber-800">About</a></li>
+                <li><a href="Publications.html" class="nav-link text-gray-500 hover:text-amber-800">Publications</a></li>
+                <li><a href="project.html" class="nav-link text-gray-500 hover:text-amber-800">Projects</a></li>
+                <li><a href="contact.html" class="nav-link text-gray-500 hover:text-amber-800">Contact</a></li>
             </ul>
         </nav>
 
@@ -51,41 +49,45 @@
       </button>
         <!-- Sidebar for larger screens -->
         <!-- Added left-0, top-0 for clarity and z-30 to be under mobile overlays -->
-        <nav class="w-full md:w-1/4 bg-amber-50 p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
+        <nav class="w-full md:w-1/4 bg-black p-6 flex-col items-center shadow-lg hidden md:flex h-screen fixed left-0 top-0 z-30">
         
-            <div class="mb-8 pt-16 md:pt-24">
-              <h1 class="text-3xl font-bold text-black text-center">Adewale</h1>
-            </div>
+          <div class="mb-8 pt-24 text-center"><h1 class="text-3xl font-bold text-white dark:text-white">Adewale</h1></div>
             <div class="flex flex-col items-center gap-5">
-              <a href="index.html" class="text-gray-500 hover:text-gray-800 text-lg">Home</a>
-              <a href="about.html" class="text-gray-500 hover:text-gray-800 text-lg">About</a>
-              <a href="Publications.html" class="text-gray-500 hover:text-gray-800 text-lg">Publications</a>
-              <a href="project.html" class="text-gray-500 hover:text-gray-800 text-lg">Projects</a>
-              <a href="contact.html" class="text-gray-500 hover:text-gray-800 text-lg">Contacts</a>
+              <a href="index.html" class="nav-link text-gray-500 hover:text-amber-800 text-lg">Home</a>
+              <a href="about.html" class="nav-link text-gray-500 hover:text-amber-800 text-lg">About</a>
+              <a href="Publications.html" class="nav-link text-gray-500 hover:text-amber-800 text-lg">Publications</a>
+              <a href="project.html" class="nav-link text-gray-500 hover:text-amber-800 text-lg">Projects</a>
+              <a href="contact.html" class="nav-link text-gray-500 hover:text-amber-800 text-lg">Contacts</a>
             </div>
         </nav>
+         
+        <script>
+          // Highlight the active link
+          const links = document.querySelectorAll('.nav-link');
+          const currentPage = window.location.pathname.split('/').pop();
+        
+          links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+              link.classList.add('active');
+            }
+        
+            link.addEventListener('click', () => {
+              links.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+            });
+          });
+        </script>
+        
+        <style>
+          .nav-link.active {
+            font-weight: bold;
+            color: #f59e0b; /* ccolor when clicked on pages */
+          }
+        </style>
 
-        <!-- Main Content Area -->
-        <!--
-          - md:ml-1/4: Pushes the main content area to start after the 1/4 width fixed sidebar on medium screens and up.
-          - flex-1: Allows this main area to take up the remaining available width (3/4 of the screen) and height.
-          - flex flex-col items-center:
-            - flex-col: Stacks children vertically.
-            - items-center: Centers children (like the content wrapper div) horizontally within this main area.
-          - overflow-hidden: Ensures that if content inside tries to break out, it's clipped, important for scrolling setup.
-        -->
+        <!-- main to push content from under sidebar -->
         <main id="hero" class="md:ml-1/4 flex-1 flex flex-col items-center bg-gray-50 overflow-hidden md:mr-1/4 opacity-0 translate-y-10 transition-all duration-1000"></main>
-           <!-- Content Wrapper for centering and max-width -->
-           <!--
-             - w-full: Takes full width of its parent (main, which is 3/4 of screen).
-             - max-w-screen-lg: Constrains the content to a readable max width (e.g., 1024px).
-                                If 3/4 of screen width is larger than this, this div will be centered.
-                                This creates a natural gap from the sidebar.
-             - h-full: Ensures this wrapper takes the full height of the parent 'main' element,
-                       allowing the 'section' inside to correctly use flex-grow and overflow-y-auto.
-             - md:px-6 lg:px-8: Adds horizontal padding on medium/large screens, creating a further "gap"
-                                for the content from the edges of this wrapper.
-           -->
+           
            <div  class="w-full max-w-screen-lg h-full flex flex-col md:px-6 lg:px-8  ">
                <!-- Section takes available space, handles its own padding and scrolling -->
                <section  class="flex flex-col flex-grow p-6 md:p-10 overflow-y-auto gap-10 ">
