@@ -242,14 +242,14 @@
                     const content = header.nextElementSibling;
                     content.classList.toggle('hidden');
                     const icon = header.querySelector('i');
-                    icon.classList.toggle('rotate-270'); // Add rotation class
+                    icon.classList.toggle('rotate-180'); // Add rotation class
                   });
                 });
               </script>
               
               <style>
-                .rotate-270 {
-                  transform: rotate(270deg);
+                .rotate-180 {
+                  transform: rotate(180deg);
                 }
               </style>
 
@@ -521,6 +521,122 @@
                 </div>
               </section>
               <!-- End of Research & Professional Interests Section -->
+
+              <!-- Testimonials Section -->
+              <section class="py-12 bg-white">
+                <div class="container mx-auto px-6">
+                  <h2 class="text-2xl font-bold text-gray-800 mb-8">Testimonials</h2>
+                  <div id="testimonial-scroll-container" class="relative overflow-hidden w-full" style="height: 200px;">
+                    <div id="testimonial-scroll-track" class="flex items-center space-x-8 will-change-transform" style="transition: none;">
+                      <!-- Testimonial Card 1 -->
+                      <div class="min-w-[350px] bg-gray-50 p-6 rounded-lg shadow-md flex flex-col justify-between h-44">
+                        <p class="text-gray-700 italic mb-4">“Adewale is a visionary leader in AI. His work ethic and technical skills are unmatched.”</p>
+                        <div class="flex items-center gap-3">
+                          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                          <div>
+                            <div class="font-semibold text-gray-800">John Doe</div>
+                            <div class="text-xs text-gray-500">CEO, Tech Innovators</div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Testimonial Card 2 -->
+                      <div class="min-w-[350px] bg-gray-50 p-6 rounded-lg shadow-md flex flex-col justify-between h-44">
+                        <p class="text-gray-700 italic mb-4">“His data science expertise helped us unlock new business opportunities.”</p>
+                        <div class="flex items-center gap-3">
+                          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                          <div>
+                            <div class="font-semibold text-gray-800">Jane Smith</div>
+                            <div class="text-xs text-gray-500">Lead Analyst, DataCorp</div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Testimonial Card 3 -->
+                      <div class="min-w-[350px] bg-gray-50 p-6 rounded-lg shadow-md flex flex-col justify-between h-44">
+                        <p class="text-gray-700 italic mb-4">“Adewale’s innovative mindset and dedication are truly inspiring.”</p>
+                        <div class="flex items-center gap-3">
+                          <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                          <div>
+                            <div class="font-semibold text-gray-800">Samuel Lee</div>
+                            <div class="text-xs text-gray-500">CTO, AI Solutions</div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Testimonial Card 4 -->
+                      <div class="min-w-[350px] bg-gray-50 p-6 rounded-lg shadow-md flex flex-col justify-between h-44">
+                        <p class="text-gray-700 italic mb-4">“He brings creativity and technical depth to every project.”</p>
+                        <div class="flex items-center gap-3">
+                          <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                          <div>
+                            <div class="font-semibold text-gray-800">Fatima Bello</div>
+                            <div class="text-xs text-gray-500">Product Manager, NextGen</div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Duplicate testimonials for seamless infinite scroll -->
+                      <div class="min-w-[350px] bg-gray-50 p-6 rounded-lg shadow-md flex flex-col justify-between h-44">
+                        <p class="text-gray-700 italic mb-4">“Adewale is a visionary leader in AI. His work ethic and technical skills are unmatched.”</p>
+                        <div class="flex items-center gap-3">
+                          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                          <div>
+                            <div class="font-semibold text-gray-800">John Doe</div>
+                            <div class="text-xs text-gray-500">CEO, Tech Innovators</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="min-w-[350px] bg-gray-50 p-6 rounded-lg shadow-md flex flex-col justify-between h-44">
+                        <p class="text-gray-700 italic mb-4">“His data science expertise helped us unlock new business opportunities.”</p>
+                        <div class="flex items-center gap-3">
+                          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                          <div>
+                            <div class="font-semibold text-gray-800">Jane Smith</div>
+                            <div class="text-xs text-gray-500">Lead Analyst, DataCorp</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <script>
+                // Infinite horizontal scroll for testimonials
+                const scrollContainer = document.getElementById('testimonial-scroll-container');
+                const scrollTrack = document.getElementById('testimonial-scroll-track');
+                let scrollAmount = 0;
+                let scrollSpeed = 1; // px per frame (slow)
+                let isPaused = false;
+                let trackWidth = scrollTrack.scrollWidth;
+                let containerWidth = scrollContainer.offsetWidth;
+
+                function animateScroll() {
+                  if (!isPaused) {
+                    scrollAmount += scrollSpeed;
+                    if (scrollAmount >= trackWidth / 2) {
+                      scrollAmount = 0;
+                    }
+                    scrollTrack.style.transform = `translateX(-${scrollAmount}px)`;
+                  }
+                  requestAnimationFrame(animateScroll);
+                }
+
+                scrollContainer.addEventListener('mouseenter', () => {
+                  isPaused = true;
+                });
+                scrollContainer.addEventListener('mouseleave', () => {
+                  isPaused = false;
+                });
+
+                // Responsive recalculation
+                window.addEventListener('resize', () => {
+                  trackWidth = scrollTrack.scrollWidth;
+                  containerWidth = scrollContainer.offsetWidth;
+                });
+
+                animateScroll();
+              </script>
+              <!-- End of Testimonials Section -->
+
+              
                </section>
            </div>
         </main>
